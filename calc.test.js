@@ -1,22 +1,25 @@
+const fs = require("fs");
+window.document.body.innerHTML = fs.readFileSync("./index.html");
+
 const index_js_functions = require("./index");
 
-const operate = index_js_functions.operate;
-const divide = index_js_functions.divide;
+const evaluate_expression = index_js_functions.evaluate_expression;
+const calculate = index_js_functions.calculate;
 
 describe('operate', () => {
     test("works with addition", () => {
-        expect(operate(3, '+', 5)).toEqual(8);
+        expect(evaluate_expression("3+5")).toEqual(8);
     });
     test("works with substraction", () => {
-        expect(operate(128, '-', 29)).toEqual(99);
+        expect(evaluate_expression("128-29")).toEqual(99);
     });
     test("works with multiplication", () => {
-        expect(operate(25, "*", 5)).toEqual(125);
+        expect(evaluate_expression("25*5")).toEqual(125);
     });
     test("works with division", () => {
-        expect(operate(990, "/", 99)).toEqual(10);
+        expect(evaluate_expression("990/99")).toEqual(10);
     });
     test("division 0 is handled", () => {
-        expect(operate(5, "/", 0)).toBe("ERROR");
+        expect(evaluate_expression("5/0")).toThrow('Division by zero');
     });
 });

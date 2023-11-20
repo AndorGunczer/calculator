@@ -51,7 +51,7 @@ h1 {
     text-align: right;
 }
 
-#equation, #current_value {
+#display_div, #current_value {
     display: flex;
     flex-direction: row;
     justify-content: right;
@@ -59,9 +59,14 @@ h1 {
     padding-right: 1em;
 }
 
-#equation {
+#display_div {
     height: 2em;
     border-bottom: 1px dotted black;
+}
+
+#display {
+    border: none;
+    text-align: right;
 }
 
 #current_value {

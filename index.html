@@ -12,29 +12,29 @@
     <div class="root_container">
         <div class="container">
             <div class="calc_screen">
-                <div id="equation">
-                    <p>2 + 3 * 8</p>
+                <div id="display_div">
+                    <input type="text" id="display" value="0" disabled></input>
                 </div>
                 <div id="current_value">
                     <p>0</p>
                 </div>
             </div>
             <div class="controls">
-                <button class="control_button">7</button>
-                <button class="control_button">8</button>
-                <button class="control_button">9</button>
-                <button class="control_button">+</button>
-                <button class="control_button">4</button>
-                <button class="control_button">5</button>
-                <button class="control_button">6</button>
-                <button class="control_button">-</button>
-                <button class="control_button">1</button>
-                <button class="control_button">2</button>
-                <button class="control_button">3</button>
-                <button class="control_button">*</button>
-                <button class="control_button">0</button>
-                <button class="control_button">/</button>
-                <button class="control_button" id="equal">=</button>
+                <button onclick="append_to_display('7')" class="control_button">7</button>
+                <button onclick="append_to_display('8')" class="control_button">8</button>
+                <button onclick="append_to_display('9')" class="control_button">9</button>
+                <button onclick="append_to_display('+')" class="control_button">+</button>
+                <button onclick="append_to_display('4')" class="control_button">4</button>
+                <button onclick="append_to_display('5')" class="control_button">5</button>
+                <button onclick="append_to_display('6')" class="control_button">6</button>
+                <button onclick="append_to_display('-')" class="control_button">-</button>
+                <button onclick="append_to_display('1')" class="control_button">1</button>
+                <button onclick="append_to_display('2')" class="control_button">2</button>
+                <button onclick="append_to_display('3')" class="control_button">3</button>
+                <button onclick="append_to_display('*')" class="control_button">*</button>
+                <button onclick="append_to_display('0')" class="control_button">0</button>
+                <button onclick="append_to_display('/')" class="control_button">/</button>
+                <button onclick="calculate()" class="control_button" id="equal">=</button>
             </div>
         </div>
     </div>
