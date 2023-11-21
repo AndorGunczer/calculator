@@ -27,13 +27,28 @@ function calculate() {
 };
 
 function evaluate_expression(expression) {
+    const tokens = expression.match(/([0-9]+|\+|\-|\*|\/)/g);
+
+    detect_negative_numbers(tokens);
+    return shunting_yard(tokens);
+};
+
+function detect_negative_numbers(tokens) {
+    for (let i = 0; i < tokens.length; i++) {
+        if (tokens[i] == '-') {
+            if (i == 0 && isNaN(tokens[i + 1])) {
+                tokens.splice(i, 2, (tokens[i + 1] * -1));
+            } else if (isNaN(tokens[i - 1]) && !isNaN(tokens[i + 1])) {
+                tokens.splice(i, 2, (tokens[i + 1] * -1));
+            }
+        }
+    }
+};
+
+function shunting_yard(tokens) {
     const output_queue = [];
     const operator_stack = [];
     const operators = { '+': 1, '-': 1, '*': 2, '/': 2 };
-
-    let tokens = expression.match(/([0-9]+|\+|\-|\*|\/)/g);
-
-    detect_negative_numbers(tokens);
 
     tokens.forEach(token => {
         if (!isNaN(token)) {
@@ -89,19 +104,7 @@ function evaluate_expression(expression) {
     }
 
     return result_stack[0];
-};
-
-function detect_negative_numbers(tokens) {
-    for (let i = 0; i < tokens.length; i++) {
-        if (tokens[i] == '-') {
-            if (i == 0 && isNaN(tokens[i + 1])) {
-                tokens.splice(i, 2, (tokens[i + 1] * -1));
-            } else if (isNaN(tokens[i - 1]) && !isNaN(tokens[i + 1])) {
-                tokens.splice(i, 2, (tokens[i + 1] * -1));
-            }
-        }
-    }
-};
+}
 
 // module.exports.evaluate_expression = evaluate_expression;
 // module.exports.calculate = calculate;

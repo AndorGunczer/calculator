@@ -19,6 +19,12 @@ describe('operate', () => {
     test("works with division", () => {
         expect(evaluate_expression("990/99")).toEqual(10);
     });
+    test("works with negative numebrs", () => {
+        expect(evaluate_expression("-2+-4")).toEqual(-6);
+    });
+    test("double - case (--)", () => {
+        expect(evaluate_expression("-2--4")).toEqual(2);
+    });
     test("division 0 is handled", () => {
         expect(() => evaluate_expression("5/0")).toThrow('Division by zero');
     });
