@@ -89,5 +89,5 @@ function evaluate_expression(expression) {
     return result_stack[0];
 };
 
-// module.exports.evaluate_expression = evaluate_expression;
-// module.exports.calculate = calculate;
+module.exports.evaluate_expression = evaluate_expression;
+module.exports.calculate = calculate;

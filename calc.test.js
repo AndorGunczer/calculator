@@ -20,6 +20,6 @@ describe('operate', () => {
         expect(evaluate_expression("990/99")).toEqual(10);
     });
     test("division 0 is handled", () => {
-        expect(evaluate_expression("5/0")).toThrow('Division by zero');
+        expect(() => evaluate_expression("5/0")).toThrow('Division by zero');
     });
 });
